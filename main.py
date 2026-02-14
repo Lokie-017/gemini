@@ -44,3 +44,6 @@ while True:
 
     # Save assistant reply
     chat_history.append(f"Assistant: {answer}")
+
+
+
