@@ -1,7 +1,27 @@
 import os
 from google import genai
+from pypdf import PdfReader
 
 _client = None
+
+
+def extract_text_from_pdf(pdf_file):
+    """Extract text from a PDF file object.
+    
+    Args:
+        pdf_file: A file-like object containing PDF data
+        
+    Returns:
+        str: Extracted text from all pages in the PDF
+    """
+    try:
+        reader = PdfReader(pdf_file)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text() + "\n"
+        return text.strip()
+    except Exception as e:
+        raise RuntimeError(f"Failed to extract text from PDF: {e}") from e
 
 
 def get_client():

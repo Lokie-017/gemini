@@ -1,2 +1,5 @@
-google-genai
+﻿google-genai
 streamlit
+pypdf
+firebase-admin
+
